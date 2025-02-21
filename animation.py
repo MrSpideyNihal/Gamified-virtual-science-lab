@@ -18,8 +18,8 @@ class VideoPlayer:
 
 # Example Usage:
 reaction_videos = {
-    "water": "reaction_water.mp4",  # Example: H2 + O2 → H2O
-    "salt": "reaction_salt.mp4",  # Example: Na + Cl → NaCl
+    "water": "Vedio\one.mp4",  # Example: H2 + O2 → H2O
+    "salt": "2nd.mp4",  # Example: Na + Cl → NaCl
 }
 
 player = VideoPlayer(reaction_videos)

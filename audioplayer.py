@@ -28,8 +28,8 @@ class AudioPlayer:
         pygame.mixer.music.stop()
 
 # Example Usage:
-appreciation_sounds = ["app1.mp3", "app2.mp3", "app3.mp3"]
-wrong_sounds = ["wrong1.mp3", "wrong2.mp3"]
+appreciation_sounds = ["audio//f.mp3", "nt//2.mp3", "audio//ss.mp3"]
+wrong_sounds = ["audio//ta.mp3"]
 
 player = AudioPlayer(appreciation_sounds, wrong_sounds)
 

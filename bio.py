@@ -1,6 +1,6 @@
 from ui import Window, Label, Button, WIDTH, HEIGHT, COLORS
 import pygame, sys, math
-
+from audioplayer import player
 def show_visual_explanation(visual_type):
     """
     Opens a new window that provides a visual explanation.
@@ -118,11 +118,13 @@ def biology_experiment():
             for i, option in enumerate(q["options"]):
                 def on_click(opt=option, q=q):
                     if opt == q["answer"]:
-                        result_label.text = f"✅ Correct! Badge earned: {q['badge']}"
+                        result_label.text = f" Correct! Badge earned: {q['badge']}"
+                        player.play_random_appreciation()
+
                         pygame.time.delay(1000)
                         next_question()
                     else:
-                        result_label.text = "❌ Wrong answer! Try again."
+                        result_label.text = " Wrong answer! Try again."
                 btn = Button(option, start_x + i * spacing - 60, 200, 120, 50, on_click)
                 answer_buttons.append(btn)
                 window.add_element(btn)
@@ -152,7 +154,7 @@ def biology_experiment():
         window.running = False
         menu()
     
-    back_btn = Button("🔙 Back", 20, HEIGHT - 70, 100, 40, back_to_menu)
+    back_btn = Button(" Back", 20, HEIGHT - 70, 100, 40, back_to_menu)
     window.add_element(back_btn)
     
     window.run()

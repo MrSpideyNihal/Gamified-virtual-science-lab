@@ -29,21 +29,21 @@ except Exception as e:
 # ------------------------------
 # UI Components
 # ------------------------------
-class Button:  # ✅ Define Button first before it's used anywhere
+class Button:
     def __init__(self, text, x, y, width, height, on_click, color=COLORS["button"], text_color=COLORS["button_text"], font=button_font):
         self.text = text
         self.rect = pygame.Rect(x, y, width, height)
         self.on_click = on_click
         self.color = color
-        self.text_color = text_color
+        self.text_color = text_color # Make sure this line is present and correct
         self.font = font
-    
+
     def draw(self, surface):
         pygame.draw.rect(surface, self.color, self.rect, border_radius=8)
         text_surf = self.font.render(self.text, True, self.text_color)
         text_rect = text_surf.get_rect(center=self.rect.center)
         surface.blit(text_surf, text_rect)
-    
+
     def is_hovered(self, mouse_pos):
         return self.rect.collidepoint(mouse_pos)
 
