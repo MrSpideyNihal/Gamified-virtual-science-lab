@@ -62,16 +62,21 @@ class Label:
 
 class Window:
     def __init__(self, title="Window", width=WIDTH, height=HEIGHT):
-        pygame.init()  # ✅ Ensure Pygame is initialized inside the class
+        pygame.init()
         self.screen = pygame.display.set_mode((width, height))
         pygame.display.set_caption(title)
         self.running = True
         self.elements = []
         self.clock = pygame.time.Clock()
+        self.keydown_handler = None  # Add a keydown handler
 
     def add_element(self, element):
         self.elements.append(element)
     
+    def set_keydown_handler(self, handler):
+        """Allows setting a function to handle keyboard input."""
+        self.keydown_handler = handler
+
     def run(self):
         while self.running:
             self.screen.fill(COLORS["background"])
@@ -80,9 +85,11 @@ class Window:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
+                if event.type == pygame.KEYDOWN and self.keydown_handler:
+                    self.keydown_handler(event)  # Call the key handler function
                 if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                     for element in self.elements:
-                        if isinstance(element, Button) and element.is_hovered(mouse_pos):  # ✅ Button is now properly defined
+                        if isinstance(element, Button) and element.is_hovered(mouse_pos):
                             element.on_click()
             
             for element in self.elements:
