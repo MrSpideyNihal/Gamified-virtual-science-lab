@@ -2,6 +2,7 @@ from ui import Window, Label, Button, HEIGHT, WIDTH
 import sys
 import pygame
 import json, os, sys
+pygame.init()
 
 # ✅ Ensure Pygame initializes before any Pygame function is used
 if not pygame.get_init():

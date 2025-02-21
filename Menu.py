@@ -1,11 +1,19 @@
 from ui import Window, Label, Button, WIDTH, HEIGHT
 import pygame, sys
-
+from chem import chemistry_experiment
 # ------------------------------
 # Subject Selection Menu
 # ------------------------------
 def open_subject(subject):
     print(f"Launching {subject} experiments...")
+    if subject == "Chemistry":
+        chemistry_experiment()
+    elif subject == "Physics":
+        pass
+    elif subject == "Biology":
+        pass
+    else:
+        print("Undefined Subject")
 
 def menu(go_back=None):  # ✅ Added go_back parameter
     print("Opening Subject Selection Menu")  # Debugging message
